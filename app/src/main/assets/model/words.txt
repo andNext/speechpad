@@ -1,0 +1,8 @@
+<eps> 0
+!SIL 1
+<NOISE> 2
+<SPOKEN_NOISE> 3
+<UNK> 4
+sil_word 5
+начать-запись 6
+#0 7

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/C:/workspace/SpeechPad/yandexSpeechKit/src/main/res/values-fi/strings.xml -->
+    <eat-comment/>
+    <string name="bro_common_speech_dialog_cancel_button">Peruuta</string>
+    <string name="bro_common_speech_dialog_hint">Valmiina</string>
+    <string name="bro_common_speech_dialog_network">You must be connected to the internet to use the voice recognition feature</string>
+    <string name="bro_common_speech_dialog_not_supported">Voice search not supported.</string>
+    <string name="bro_common_speech_dialog_open_error">Unable to initialize voice search</string>
+    <string name="bro_common_speech_dialog_ready_button">Valmis</string>
+    <string name="bro_common_speech_dialog_repeat_button">Yritä uudelleen</string>
+    <string name="bro_common_speech_dialog_timeout">I can\'t hear you</string>
+    <string name="bro_common_speech_dialog_title">Etsitkö...</string>
+    <string name="bro_common_speech_dialog_unrecognized">Valitettavasti tätä lausetta ei tunnistettu. Ole hyvä ja yritä uudelleen.</string>
+    <string name="bro_common_speech_dialog_wait">Please wait</string>
+    <string name="bro_common_speech_dialog_wait_before">Just a sec</string>
+</resources>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/background_black">
+
+
+    <TextView
+        android:id="@+id/result_view"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_orange"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="99dp"
+        android:layout_alignLeft="@+id/imageButtonSave"
+        android:layout_alignStart="@+id/imageButtonSave"
+        android:layout_alignRight="@+id/imageButtonHistory"
+        android:layout_alignEnd="@+id/imageButtonHistory"
+        android:textSize="@dimen/abc_text_size_large_material" />
+
+
+
+
+        <ImageButton
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:id="@+id/imageButtonSave"
+            android:contentDescription="@string/save"
+            android:src="@drawable/save"
+            android:background="@null"
+            android:scaleType="fitXY"
+            android:layout_alignBottom="@+id/startButton"
+
+            android:layout_marginLeft="45dp"
+            android:layout_marginStart="47dp"
+            android:onClick="onClickSave" />
+
+        <ImageButton
+            android:id="@+id/startButton"
+            android:contentDescription="@string/record"
+            android:layout_width="100dp"
+            android:layout_height="95dp"
+            android:background="@null"
+            android:scaleType="fitXY"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/button_off"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="44dp" />
+
+        <ImageButton
+            android:layout_width="47dp"
+            android:layout_height="29dp"
+            android:id="@+id/imageButtonHistory"
+            android:contentDescription="@string/history"
+            android:src="@drawable/history"
+            android:background="@null"
+            android:scaleType="fitXY"
+            android:onClick="onClickHistory"
+            android:layout_marginRight="47dp"
+            android:layout_marginEnd="33dp"
+            android:layout_alignBottom="@+id/startButton"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+</RelativeLayout>
