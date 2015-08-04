@@ -64,4 +64,19 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
 
+    <ImageButton
+        android:layout_width="30dp"
+        android:layout_height="43dp"
+        android:id="@+id/imageButton"
+        android:contentDescription="@string/translate"
+        android:layout_above="@+id/startButton"
+        android:src="@drawable/translate_icon"
+        android:background="@null"
+        android:scaleType="fitXY"
+        android:layout_alignRight="@+id/imageButtonHistory"
+        android:layout_alignEnd="@+id/imageButtonHistory"
+        android:layout_alignLeft="@+id/imageButtonHistory"
+        android:layout_alignStart="@+id/imageButtonHistory"
+        android:onClick="onClickTranslate" />
+
 </RelativeLayout>

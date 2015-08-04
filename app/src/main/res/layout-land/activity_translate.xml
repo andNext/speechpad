@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/language_bar"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fromLang"
+                android:id="@+id/from_lang"
+                android:layout_weight="3" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text=""
+                android:id="@+id/switch_lang"
+                android:background="@drawable/switch_lang_button"
+                android:layout_weight="2"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/toLang"
+                android:id="@+id/to_lang"
+                android:layout_weight="3" />
+        </LinearLayout>
+
+        <View android:id="@+id/fakeView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_centerInParent="true"/>
+
+        <fragment
+            android:name="com.tech_mail.tp_android_2015.fragments.FormEditTextFragment"
+            android:id="@+id/form_edit_text_fragment"
+            android:layout_width="wrap_content"
+            android:layout_alignRight="@id/fakeView"
+            android:layout_alignEnd="@id/fakeView"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/language_bar"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
+            tools:layout="@layout/fragment_form_edit_text" />
+
+        <fragment
+            android:name="com.tech_mail.tp_android_2015.fragments.FormViewTextFragment"
+            android:id="@+id/form_view_text_fragment"
+            android:layout_width="wrap_content"
+            android:layout_alignLeft="@id/fakeView"
+            android:layout_alignStart="@id/fakeView"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/language_bar"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            tools:layout="@layout/fragment_form_view_text" />
+
+</RelativeLayout>

@@ -38,10 +38,10 @@ public class SecondActivity extends ActionBarActivity {
         //TextView infoTextView = (TextView)findViewById(R.id.textView);
         //infoTextView.setText(note + "\n" + date);
 
-        // не забываем закрывать курсор
+        //
         //cursor.close();
        // TextView infoTextView = (TextView)findViewById(R.id.textView);
-        // јбстрактный пример
+        //
         LinearLayout layoutt = (LinearLayout) findViewById(R.id.layout);
         DatabaseHelper mDatabaseHelper;
         mDatabaseHelper = new DatabaseHelper(this, "paddatabase.db", null, 1);

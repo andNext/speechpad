@@ -23,6 +23,20 @@
             android:name=".SecondActivity"
             android:label="@string/title_activity_second" >
         </activity>
+
+        <activity
+            android:name=".TranslateActivity"
+            android:label="@string/translate" >
+        </activity>
+        <activity
+            android:name=".LanguageList"
+            android:label="@string/title_activity_language_list"
+            android:parentActivityName=".TranslateActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ru.expendables.speechpad.TranslateActivity" />
+        </activity>
+
     </application>
 
 </manifest>

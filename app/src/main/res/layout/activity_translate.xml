@@ -1,0 +1,59 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:background="@color/primary_dark_material_dark">
+
+        <LinearLayout
+            android:id="@+id/language_bar"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fromLang"
+                android:id="@+id/from_lang"
+                android:layout_weight="3" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/switch_lang"
+                android:layout_weight="2"
+                android:background="@drawable/switch_lang_button"
+
+                />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/toLang"
+                android:id="@+id/to_lang"
+                android:layout_weight="3" />
+        </LinearLayout>
+
+        <fragment
+            android:name="ru.expendables.speechpad.fragments.FormEditTextFragment"
+            android:id="@+id/form_edit_text_fragment"
+            android:layout_below="@+id/language_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout="@layout/fragment_form_edit_text" />
+
+        <fragment
+            android:name="ru.expendables.speechpad.fragments.FormViewTextFragment"
+            android:id="@+id/form_view_text_fragment"
+            android:layout_below="@+id/form_edit_text_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout="@layout/fragment_form_view_text" />
+
+
+
+</RelativeLayout>

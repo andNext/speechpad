@@ -18,6 +18,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Date;
+import android.widget.Toast;
 
 import ru.yandex.speechkit.PhraseSpotter;
 import ru.yandex.speechkit.PhraseSpotterListener;
@@ -34,6 +35,7 @@ public class MainActivity extends Activity
     private TextView resultView;
     private boolean dex = false; //press on botton
     public SQLiteDatabase mSqLiteDatabase;
+    public static String toTranslate="";
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -43,7 +45,7 @@ public class MainActivity extends Activity
         setContentView(R.layout.activity_main);
 
         /*
-         *инициализация кнопки микрофона
+         *start record voice
         */
         startButton = (ImageButton)findViewById(R.id.startButton);
         startButton.setOnClickListener (new OnClickListener() {
@@ -57,8 +59,7 @@ public class MainActivity extends Activity
 
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         /*
-        Содержимое папки assets/model копируются в папку приложения, для того чтобы они были доступны
-        механизм распознования
+         assets/model
          */
         File wallpaperDirectory = new File(getFilesDir().getAbsolutePath() + "/model/");
         wallpaperDirectory.mkdirs();
@@ -70,31 +71,26 @@ public class MainActivity extends Activity
         if(file.length == 0)
             copyAssets();
 
-        //инициализация строки вывода
+
         resultView = (TextView)findViewById(R.id.result_view);
         DatabaseHelper mDatabaseHelper = new DatabaseHelper(this, "paddatabase.db", null, 1);
 
         mSqLiteDatabase = mDatabaseHelper.getWritableDatabase();
 
-        initialize();//инициализация механизма распознавания
+        initialize();
     }
 
-    /**
-     * Инициализируется механизма распознавания.
-     */
+
     private void initialize() {
         //SpeechKit.getInstance().configure(getBaseContext(), "8b1a122c-9942-4f0d-a1a6-10a18353131f");
         SpeechKit.getInstance().configure(getBaseContext(), "8f38a015-ea3b-411f-babb-59b6d9e415a1");
 
         PhraseSpotter.initialize(getFilesDir().getAbsolutePath() + "/model", new LogRecognitionListener());
 
-        // PhraseSpotter начнет запись звука и поиск заданных фраз
         PhraseSpotter.start();
     }
 
-    /**
-     * копирования ассетов.
-     */
+
     private void copyAssets() {
         AssetManager assetManager = getAssets();
         String[] files = null;
@@ -132,9 +128,7 @@ public class MainActivity extends Activity
         }
     }
 
-    /**
-     * копирование файла.
-     */
+
     private void copyFile(InputStream in, OutputStream out) throws IOException {
         byte[] buffer = new byte[1024];
         int read;
@@ -144,7 +138,7 @@ public class MainActivity extends Activity
     }
 
     private void onoff(){
-        //анимация кнопки микрофона
+
         if(!dex){
             startButton.setImageResource(R.drawable.button_on);
         }
@@ -156,9 +150,7 @@ public class MainActivity extends Activity
 
     private class LogRecognitionListener implements PhraseSpotterListener {
 
-        /**
-         * Обнаружении ключевой фразы в аудиопотоке.
-         */
+
         @Override
         public void onPhraseSpotted(String s, int i) {
             Log.d(TAG, "onPhraseSpotted");
@@ -167,25 +159,19 @@ public class MainActivity extends Activity
             startVoiceRecognitionActivity();
         }
 
-        /**
-         * Вызывается в момент начала записи звука.
-         */
+
         @Override
         public void onPhraseSpotterStarted() {
             Log.d(TAG, "onPhraseSpotterStarted");
         }
 
-        /**
-         * Вызывается в момент окончания записи звука.
-         */
+
         @Override
         public void onPhraseSpotterStopped() {
             Log.d(TAG, "onPhraseSpotterStopped");
         }
 
-        /**
-         * Вызывается при возникновении ошибки во время работы PhraseSpotter.
-         */
+
         @Override
         public void onPhraseSpotterError(Error error) {
             Log.d(TAG, "onPhraseSpotterError");
@@ -196,28 +182,20 @@ public class MainActivity extends Activity
         super.onStart();
     }
 
-    /**
-     * вывод результата
-     * @param result
-     */
     public void onRecognitionDone(String result) {
         Log.d(TAG, "onRecognitionDone " + result);
 
         resultView.setText(result);
     }
 
-    /**
-    *вывод ошибок
-     */
+
     public void onError(Error error) {
         Log.e(TAG, "onError " + error.toString());
 
-        resultView.setText("Error: " + error.toString());
+        ShowMessage("Error: " + error.toString());
     }
 
-    /**
-     * запуск вспомогательного экрана с процессом распознавания
-     */
+
     private void startVoiceRecognitionActivity() {
         onoff();
         Intent intent = new Intent(this, RecognizerActivity.class);
@@ -226,12 +204,6 @@ public class MainActivity extends Activity
         startActivityForResult(intent, 0);
     }
 
-    /**
-     * обработка результатов распознавания
-     * @param requestCode
-     * @param resultCode
-     * @param data
-     */
     @Override
     public void onActivityResult (int requestCode, int resultCode, Intent data) {
         if (resultCode == RecognizerActivity.RESULT_OK) {
@@ -247,14 +219,13 @@ public class MainActivity extends Activity
     @Override
     public void onPause() {
         super.onPause();
-        //деинициализация
         PhraseSpotter.uninitialize();
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        //деинициализация
+
         PhraseSpotter.uninitialize();
     }
 
@@ -263,18 +234,34 @@ public class MainActivity extends Activity
         Intent intent = new Intent(MainActivity.this, SecondActivity.class);
         startActivity(intent);
     }
+    public void onClickTranslate(View view) {
+        if(!resultView.getText().equals("")) {
+            toTranslate=resultView.getText().toString();
+            PhraseSpotter.uninitialize();
+            Intent intent = new Intent(MainActivity.this, TranslateActivity.class);
+            startActivity(intent);
+        }
+        else{
+            ShowMessage("Can't be translated");
+        }
+    }
 
     public void onClickSave(View view) {
         if(resultView.getText().length()>1){
         ContentValues newValues = new ContentValues();
         String cdata = new Date().toString();
-        // Задаём значения для каждого столбца
+
         newValues.put(DatabaseHelper.NOTE_COLUMN, resultView.getText().toString());
         newValues.put(DatabaseHelper.DATE_COLUMN, cdata);
 
-        // Вставляем данные в таблицу
+
         mSqLiteDatabase.insert("notes", null, newValues);
         }
     }
 
+    private void ShowMessage(String message) {
+        Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
+    }
+
 }
+

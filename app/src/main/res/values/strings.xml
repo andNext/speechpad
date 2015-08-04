@@ -9,6 +9,14 @@
     <string name="record">Запись</string>
     <string name="save">Сохранить</string>
     <string name="history">История</string>
+	
+    <string name="action_clear">Clear</string>
 
+    <string name="fromLang">en</string>
+    <string name="toLang">ru</string>
+    <string name="translate">Перевести</string>
+    <string name="title_activity_language_list">Список языков</string>
+
+    <string name="api_langarray_name">dirs</string>
 </resources>
 
