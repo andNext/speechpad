@@ -17,6 +17,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import android.widget.Toast;
 
@@ -82,7 +83,6 @@ public class MainActivity extends Activity
 
 
     private void initialize() {
-        //SpeechKit.getInstance().configure(getBaseContext(), "8b1a122c-9942-4f0d-a1a6-10a18353131f");
         SpeechKit.getInstance().configure(getBaseContext(), "8f38a015-ea3b-411f-babb-59b6d9e415a1");
 
         PhraseSpotter.initialize(getFilesDir().getAbsolutePath() + "/model", new LogRecognitionListener());
@@ -150,7 +150,6 @@ public class MainActivity extends Activity
 
     private class LogRecognitionListener implements PhraseSpotterListener {
 
-
         @Override
         public void onPhraseSpotted(String s, int i) {
             Log.d(TAG, "onPhraseSpotted");
@@ -165,12 +164,10 @@ public class MainActivity extends Activity
             Log.d(TAG, "onPhraseSpotterStarted");
         }
 
-
         @Override
         public void onPhraseSpotterStopped() {
             Log.d(TAG, "onPhraseSpotterStopped");
         }
-
 
         @Override
         public void onPhraseSpotterError(Error error) {
@@ -245,15 +242,17 @@ public class MainActivity extends Activity
             ShowMessage("Can't be translated");
         }
     }
-
+    /*
+    Save in DB current Date&Time and text
+     */
     public void onClickSave(View view) {
         if(resultView.getText().length()>1){
         ContentValues newValues = new ContentValues();
-        String cdata = new Date().toString();
+
+        String currentDateandTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
 
         newValues.put(DatabaseHelper.NOTE_COLUMN, resultView.getText().toString());
-        newValues.put(DatabaseHelper.DATE_COLUMN, cdata);
-
+        newValues.put(DatabaseHelper.DATE_COLUMN, currentDateandTime);
 
         mSqLiteDatabase.insert("notes", null, newValues);
         }
