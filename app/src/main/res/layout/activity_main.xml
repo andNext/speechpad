@@ -3,7 +3,8 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/background_black">
+    android:background="@color/background_black"
+    android:longClickable="false">
 
 
     <TextView
@@ -19,21 +20,18 @@
         android:layout_alignEnd="@+id/imageButtonHistory"
         android:textSize="@dimen/abc_text_size_large_material" />
 
-
-
-
         <ImageButton
-            android:layout_width="45dp"
-            android:layout_height="45dp"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
             android:id="@+id/imageButtonSave"
             android:contentDescription="@string/save"
-            android:src="@drawable/save"
-            android:background="@null"
+            android:background="@drawable/save_button"
             android:scaleType="fitXY"
-            android:layout_alignBottom="@+id/startButton"
 
             android:layout_marginLeft="45dp"
-            android:layout_marginStart="47dp"
+            android:layout_alignBottom="@+id/startButton"
+            android:layout_marginBottom="25dp"
+            android:layout_marginStart="45dp"
             android:onClick="onClickSave" />
 
         <ImageButton
@@ -44,7 +42,7 @@
             android:background="@null"
             android:scaleType="fitXY"
             android:layout_gravity="center_horizontal"
-            android:src="@drawable/button_off"
+            android:src="@drawable/button_micro"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="44dp" />
@@ -54,15 +52,16 @@
             android:layout_height="29dp"
             android:id="@+id/imageButtonHistory"
             android:contentDescription="@string/history"
-            android:src="@drawable/history"
             android:background="@null"
             android:scaleType="fitXY"
             android:onClick="onClickHistory"
-            android:layout_marginRight="47dp"
-            android:layout_marginEnd="33dp"
+            android:layout_marginRight="45dp"
+            android:layout_marginBottom="25dp"
+            android:layout_marginEnd="45dp"
             android:layout_alignBottom="@+id/startButton"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/button_history" />
 
     <ImageButton
         android:layout_width="30dp"
@@ -70,7 +69,7 @@
         android:id="@+id/imageButton"
         android:contentDescription="@string/translate"
         android:layout_above="@+id/startButton"
-        android:src="@drawable/translate_icon"
+        android:src="@drawable/button_translate"
         android:background="@null"
         android:scaleType="fitXY"
         android:layout_alignRight="@+id/imageButtonHistory"

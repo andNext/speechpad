@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="ru.expendables.speechpad"
-    android:versionCode="1"
-    android:versionName="1.0" >
+    package="ru.expendables.speechpad">
 
     <application
         android:allowBackup="true"
@@ -26,12 +24,11 @@
 
         <activity
             android:name=".TranslateActivity"
-            android:label="@string/translate" >
+            android:label="@string/title_activity_translate" >
         </activity>
         <activity
             android:name=".LanguageList"
-            android:label="@string/title_activity_language_list"
-            android:parentActivityName=".TranslateActivity" >
+            android:label="@string/title_activity_language_list">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ru.expendables.speechpad.TranslateActivity" />

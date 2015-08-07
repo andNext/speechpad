@@ -11,7 +11,7 @@
         android:background="@null"
         android:scaleType="fitXY"
         android:id="@+id/startButtonMain"
-        android:src="@drawable/button_off"
+        android:src="@drawable/button_micro"
         android:contentDescription="@string/record"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
@@ -27,5 +27,6 @@
         android:layout_above="@+id/startButtonMain"
         android:layout_alignParentTop="true"
         android:focusableInTouchMode="false"
+        android:contentDescription="Notes"
         android:id="@+id/layout"></LinearLayout>
 </RelativeLayout>

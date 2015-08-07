@@ -19,6 +19,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
+
 import android.widget.Toast;
 
 import ru.yandex.speechkit.PhraseSpotter;
@@ -140,10 +142,10 @@ public class MainActivity extends Activity
     private void onoff(){
 
         if(!dex){
-            startButton.setImageResource(R.drawable.button_on);
+            startButton.setImageResource(R.drawable.button_micro_on);
         }
         else{
-            startButton.setImageResource(R.drawable.button_off);
+            startButton.setImageResource(R.drawable.button_micro);
         }
         dex=!dex;
     }
@@ -232,32 +234,42 @@ public class MainActivity extends Activity
         startActivity(intent);
     }
     public void onClickTranslate(View view) {
+        //successful translate
         if(!resultView.getText().equals("")) {
             toTranslate=resultView.getText().toString();
             PhraseSpotter.uninitialize();
             Intent intent = new Intent(MainActivity.this, TranslateActivity.class);
             startActivity(intent);
         }
+        ///unsuccessful translate
         else{
-            ShowMessage("Can't be translated");
+            ShowMessage(getString(R.string.translateFalse));
         }
     }
     /*
     Save in DB current Date&Time and text
      */
     public void onClickSave(View view) {
-        if(resultView.getText().length()>1){
-        ContentValues newValues = new ContentValues();
+        //successful save
+        if(!resultView.getText().equals("")){
+            ContentValues newValues = new ContentValues();
 
-        String currentDateandTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
+            //Current date, for example : 7 august 2015 14:55
+            String currentDT = new SimpleDateFormat("d MMMM yyyy    HH:mm", Locale.getDefault()).format(new Date());
+            newValues.put(DatabaseHelper.NOTE_COLUMN, resultView.getText().toString());
+            newValues.put(DatabaseHelper.DATE_COLUMN, currentDT);
 
-        newValues.put(DatabaseHelper.NOTE_COLUMN, resultView.getText().toString());
-        newValues.put(DatabaseHelper.DATE_COLUMN, currentDateandTime);
+            mSqLiteDatabase.insert("notes", null, newValues);
 
-        mSqLiteDatabase.insert("notes", null, newValues);
+            ShowMessage(getString(R.string.saveTrue));
+        }
+        //unsuccessful save
+        else{
+            ShowMessage(getString(R.string.saveFalse));
         }
     }
 
+    //a pop-up message
     private void ShowMessage(String message) {
         Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
     }
