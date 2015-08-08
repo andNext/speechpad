@@ -15,16 +15,15 @@
         android:layout_marginTop="11dp" />
 
     <ImageButton
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="@null"
+
+        android:layout_width="100dp"
+        android:layout_height="95dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/micro_button"
         android:id="@+id/to_history"
-        android:src="@drawable/button_micro"
-        android:layout_marginBottom="24dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="44dp"/>
 
 
 </RelativeLayout>

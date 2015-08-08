@@ -8,10 +8,9 @@
     <ImageButton
         android:layout_width="100dp"
         android:layout_height="95dp"
-        android:background="@null"
+        android:background="@drawable/micro_button"
         android:scaleType="fitXY"
         android:id="@+id/startButtonMain"
-        android:src="@drawable/button_micro"
         android:contentDescription="@string/record"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"

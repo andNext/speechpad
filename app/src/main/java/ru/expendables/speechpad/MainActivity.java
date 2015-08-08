@@ -36,7 +36,6 @@ public class MainActivity extends Activity
 
     public ImageButton startButton;
     private TextView resultView;
-    private boolean dex = false; //press on botton
     public SQLiteDatabase mSqLiteDatabase;
     public static String toTranslate="";
 
@@ -53,10 +52,8 @@ public class MainActivity extends Activity
         startButton = (ImageButton)findViewById(R.id.startButton);
         startButton.setOnClickListener (new OnClickListener() {
             public void onClick (View v) {
-
                PhraseSpotter.stop();
                startVoiceRecognitionActivity();
-
             }
         });
 
@@ -73,7 +70,6 @@ public class MainActivity extends Activity
         File file[] = f.listFiles();
         if(file.length == 0)
             copyAssets();
-
 
         resultView = (TextView)findViewById(R.id.result_view);
         DatabaseHelper mDatabaseHelper = new DatabaseHelper(this, "paddatabase.db", null, 1);
@@ -139,16 +135,6 @@ public class MainActivity extends Activity
         }
     }
 
-    private void onoff(){
-
-        if(!dex){
-            startButton.setImageResource(R.drawable.button_micro_on);
-        }
-        else{
-            startButton.setImageResource(R.drawable.button_micro);
-        }
-        dex=!dex;
-    }
 
     private class LogRecognitionListener implements PhraseSpotterListener {
 
@@ -196,7 +182,11 @@ public class MainActivity extends Activity
 
 
     private void startVoiceRecognitionActivity() {
-        onoff();
+
+        //startButton.setPressed(true); // wait_update, recognize without new intent
+        //long press the record button during recognition
+        startButton.setImageResource(R.drawable.micro_pressed);
+
         Intent intent = new Intent(this, RecognizerActivity.class);
         intent.putExtra(RecognizerActivity.EXTRA_LANGUAGE, "ru-RU");
         intent.putExtra(RecognizerActivity.EXTRA_MODEL, "general");
@@ -211,7 +201,10 @@ public class MainActivity extends Activity
         else if (resultCode == RecognizerActivity.RESULT_ERROR) {
             onError((Error) data.getSerializableExtra(RecognizerActivity.EXTRA_ERROR));
         }
-        onoff();
+
+        //startButton.setPressed(false); // wait_update, recognize without new intent
+        //cancel button is pressed after recognition
+        startButton.setImageResource(R.drawable.micro_button);
         initialize();
     }
 

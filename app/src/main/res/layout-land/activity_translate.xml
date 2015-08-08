@@ -44,7 +44,7 @@
             android:layout_centerInParent="true"/>
 
         <fragment
-            android:name="com.tech_mail.tp_android_2015.fragments.FormEditTextFragment"
+            android:name="ru.expendables.speechpad.fragments.FormEditTextFragment"
             android:id="@+id/form_edit_text_fragment"
             android:layout_width="wrap_content"
             android:layout_alignRight="@id/fakeView"
@@ -57,7 +57,7 @@
             tools:layout="@layout/fragment_form_edit_text" />
 
         <fragment
-            android:name="com.tech_mail.tp_android_2015.fragments.FormViewTextFragment"
+            android:name="ru.expendables.speechpad.fragments.FormViewTextFragment"
             android:id="@+id/form_view_text_fragment"
             android:layout_width="wrap_content"
             android:layout_alignLeft="@id/fakeView"
