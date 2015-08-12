@@ -23,6 +23,7 @@ import java.util.Locale;
 
 import android.widget.Toast;
 
+import ru.expendables.speechpad.utils.DatabaseHelper;
 import ru.yandex.speechkit.PhraseSpotter;
 import ru.yandex.speechkit.PhraseSpotterListener;
 import ru.yandex.speechkit.Error;
@@ -35,6 +36,8 @@ public class MainActivity extends Activity
     private static final String TAG = "SpeechPad";
 
     public ImageButton startButton;
+    public ImageButton translateButton;
+    public ImageButton saveButton;
     private TextView resultView;
     public SQLiteDatabase mSqLiteDatabase;
     public static String toTranslate="";
@@ -45,11 +48,17 @@ public class MainActivity extends Activity
         Log.d(TAG, "onCreate");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        startButton = (ImageButton)findViewById(R.id.microButton);
+        translateButton = (ImageButton)findViewById(R.id.translateButton);
+        saveButton = (ImageButton)findViewById(R.id.saveButton);
+        resultView = (TextView)findViewById(R.id.result_view);
+        resultView.setText("");
+        //Set invisible button save&translate
+        setVisibleButtons();
 
         /*
          *start record voice
         */
-        startButton = (ImageButton)findViewById(R.id.startButton);
         startButton.setOnClickListener (new OnClickListener() {
             public void onClick (View v) {
                PhraseSpotter.stop();
@@ -71,7 +80,6 @@ public class MainActivity extends Activity
         if(file.length == 0)
             copyAssets();
 
-        resultView = (TextView)findViewById(R.id.result_view);
         DatabaseHelper mDatabaseHelper = new DatabaseHelper(this, "paddatabase.db", null, 1);
 
         mSqLiteDatabase = mDatabaseHelper.getWritableDatabase();
@@ -175,7 +183,7 @@ private void copyFile(InputStream in, OutputStream out) throws IOException {
 
     public void onError(Error error) {
         Log.e(TAG, "onError " + error.toString());
-
+        resultView.setText("");
         ShowMessage("Error: " + error.toString());
     }
 
@@ -201,9 +209,11 @@ private void copyFile(InputStream in, OutputStream out) throws IOException {
             onError((Error) data.getSerializableExtra(RecognizerActivity.EXTRA_ERROR));
         }
 
+        //Set Visible button save&translate if result string has a text
+        setVisibleButtons();
         //startButton.setPressed(false); // wait_update, recognize without new intent
         //cancel button is pressed after recognition
-        startButton.setImageResource(R.drawable.micro_button);
+        startButton.setImageResource(R.drawable.micro);
         initialize();
     }
 
@@ -258,6 +268,18 @@ private void copyFile(InputStream in, OutputStream out) throws IOException {
         //unsuccessful save
         else{
             ShowMessage(getString(R.string.saveFalse));
+        }
+    }
+
+    //Set visible button save&translate if result string has a text and invisible if hasn't a text
+    private void setVisibleButtons(){
+        if(!resultView.getText().equals("")){
+            translateButton.setVisibility(View.VISIBLE);
+            saveButton.setVisibility(View.VISIBLE);
+        }
+        else{
+            translateButton.setVisibility(View.INVISIBLE);
+            saveButton.setVisibility(View.INVISIBLE);
         }
     }
 

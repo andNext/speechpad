@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import ru.expendables.speechpad.utils.DatabaseHelper;
+
 
 public class SecondActivity extends ActionBarActivity {
 

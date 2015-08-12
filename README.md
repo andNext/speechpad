@@ -15,6 +15,6 @@ Uses:
 - Android Studio
 
 ## Screenshots
-<img src="./Screenshots/screenshot1.png" alt="screenshot1"/><img src="./Screenshots/screenshot2.png" alt="screenshot2"/>
+<img src="./screenshots/screenshot1.png" alt="screenshot1"/><img src="./screenshots/screenshot2.png" alt="screenshot2"/>
 
-<img src="./Screenshots/screenshot3.png" alt="screenshot3"/><img src="./Screenshots/screenshot4.png" alt="screenshot4"/>
+<img src="./screenshots/screenshot3.png" alt="screenshot3"/><img src="./screenshots/screenshot4.png" alt="screenshot4"/>

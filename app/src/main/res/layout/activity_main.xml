@@ -14,27 +14,27 @@
         android:textColor="@color/text_orange"
         android:layout_alignParentTop="true"
         android:layout_marginTop="99dp"
-        android:layout_alignLeft="@+id/imageButtonSave"
-        android:layout_alignStart="@+id/imageButtonSave"
-        android:layout_alignRight="@+id/imageButtonHistory"
-        android:layout_alignEnd="@+id/imageButtonHistory"
+        android:layout_alignLeft="@+id/saveButton"
+        android:layout_alignStart="@+id/saveButton"
+        android:layout_alignRight="@+id/historyButton"
+        android:layout_alignEnd="@+id/historyButton"
         android:textSize="@dimen/abc_text_size_large_material" />
 
         <ImageButton
+            android:id="@+id/saveButton"
             android:layout_width="42dp"
             android:layout_height="42dp"
-            android:id="@+id/imageButtonSave"
             android:contentDescription="@string/save"
             android:scaleType="fitXY"
             android:layout_marginLeft="45dp"
-            android:layout_alignBottom="@+id/startButton"
+            android:layout_alignBottom="@+id/microButton"
             android:layout_marginBottom="25dp"
             android:layout_marginStart="45dp"
             android:onClick="onClickSave"
             android:background="@drawable/save_button" />
 
         <ImageButton
-            android:id="@+id/startButton"
+            android:id="@+id/microButton"
             android:contentDescription="@string/record"
             android:layout_width="100dp"
             android:layout_height="95dp"
@@ -46,9 +46,9 @@
             android:layout_marginBottom="44dp" />
 
         <ImageButton
+            android:id="@+id/historyButton"
             android:layout_width="47dp"
             android:layout_height="29dp"
-            android:id="@+id/imageButtonHistory"
             android:contentDescription="@string/history"
             android:background="@drawable/history_button"
             android:scaleType="fitXY"
@@ -56,22 +56,22 @@
             android:layout_marginRight="45dp"
             android:layout_marginBottom="25dp"
             android:layout_marginEnd="45dp"
-            android:layout_alignBottom="@+id/startButton"
+            android:layout_alignBottom="@+id/microButton"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
 
     <ImageButton
+        android:id="@+id/translateButton"
         android:layout_width="30dp"
         android:layout_height="43dp"
-        android:id="@+id/imageButton"
         android:contentDescription="@string/translate"
-        android:layout_above="@+id/startButton"
+        android:layout_above="@+id/microButton"
         android:background="@drawable/translate_button"
         android:scaleType="fitXY"
-        android:layout_alignRight="@+id/imageButtonHistory"
-        android:layout_alignEnd="@+id/imageButtonHistory"
-        android:layout_alignLeft="@+id/imageButtonHistory"
-        android:layout_alignStart="@+id/imageButtonHistory"
+        android:layout_alignRight="@+id/historyButton"
+        android:layout_alignEnd="@+id/historyButton"
+        android:layout_alignLeft="@+id/historyButton"
+        android:layout_alignStart="@+id/historyButton"
         android:onClick="onClickTranslate" />
 
 </RelativeLayout>
