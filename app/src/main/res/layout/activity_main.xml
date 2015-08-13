@@ -20,6 +20,20 @@
         android:layout_alignEnd="@+id/historyButton"
         android:textSize="@dimen/abc_text_size_large_material" />
 
+    <TextView
+        android:id="@+id/translate_view"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_orange"
+        android:layout_below="@+id/result_view"
+        android:layout_marginTop="33dp"
+        android:layout_alignLeft="@+id/saveButton"
+        android:layout_alignStart="@+id/saveButton"
+        android:layout_alignRight="@+id/historyButton"
+        android:layout_alignEnd="@+id/historyButton"
+        android:textSize="@dimen/abc_text_size_large_material"/>
+
+
         <ImageButton
             android:id="@+id/saveButton"
             android:layout_width="42dp"
