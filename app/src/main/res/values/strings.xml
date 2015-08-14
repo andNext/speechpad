@@ -17,6 +17,7 @@
     <string name="toLang">ru</string>
     <string name="translate">Перевести</string>
 
+    <string name="delete_record">Удалить запись</string>
 
     <string name="api_langarray_name">Список</string>
 
