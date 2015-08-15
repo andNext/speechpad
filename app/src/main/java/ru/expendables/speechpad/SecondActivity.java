@@ -20,10 +20,14 @@ public class SecondActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
+
+        String[] from =new String[]{};
+        int[] to = new int[]{R.id.noteText, R.id.dateText};
+
         /*
             output DB in an ordered list
          */
-        LinearLayout layoutt = (LinearLayout) findViewById(R.id.layout);
+        //LinearLayout layoutt = (LinearLayout) findViewById(R.id.layout);
         DatabaseHelper mDatabaseHelper;
         mDatabaseHelper = new DatabaseHelper(this, "paddatabase.db", null, 1);
         SQLiteDatabase mSqLiteDatabase = mDatabaseHelper.getWritableDatabase();;
@@ -44,7 +48,7 @@ public class SecondActivity extends ActionBarActivity {
             txt.setTextColor(Color.rgb(180,118,74));
             txt.setTextSize(16);
             txt.setPadding(25, 0, 15, 0);
-            layoutt.addView(txt);
+            //layoutt.addView(txt);
         }
         cursor.close();
     }

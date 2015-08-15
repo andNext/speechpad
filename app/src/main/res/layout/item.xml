@@ -10,7 +10,7 @@
         android:layout_gravity="center_vertical"
         android:layout_marginLeft="10dp"
         android:text="@string/title_activity_translate"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:textColor="@color/abc_primary_text_material_dark"
         />
     <TextView
@@ -19,6 +19,6 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:text="@string/title_activity_translate"
-        android:textSize="14dp"
+        android:textSize="14sp"
         android:textColor="@color/text_orange"/>
 </LinearLayout>
