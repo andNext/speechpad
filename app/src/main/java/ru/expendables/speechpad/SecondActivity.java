@@ -8,6 +8,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import ru.expendables.speechpad.utils.DatabaseHelper;
@@ -20,10 +21,7 @@ public class SecondActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
-
-        String[] from =new String[]{};
-        int[] to = new int[]{R.id.noteText, R.id.dateText};
-
+        ListView ResultList= (ListView)findViewById(R.id.listResult);
         /*
             output DB in an ordered list
          */
@@ -42,13 +40,6 @@ public class SecondActivity extends ActionBarActivity {
         while (cursor.moveToNext()) {
             String note= cursor.getString(cursor.getColumnIndex(DatabaseHelper.NOTE_COLUMN));
             String date = cursor.getString(cursor.getColumnIndex(DatabaseHelper.DATE_COLUMN));
-
-            TextView txt = new TextView(this);
-            txt.setText(note + "\n" + date + "\n");
-            txt.setTextColor(Color.rgb(180,118,74));
-            txt.setTextSize(16);
-            txt.setPadding(25, 0, 15, 0);
-            //layoutt.addView(txt);
         }
         cursor.close();
     }
