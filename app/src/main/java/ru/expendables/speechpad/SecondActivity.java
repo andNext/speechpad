@@ -7,9 +7,14 @@ import android.graphics.Color;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 import ru.expendables.speechpad.utils.DatabaseHelper;
 
@@ -21,11 +26,15 @@ public class SecondActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
-        ListView ResultList= (ListView)findViewById(R.id.listResult);
+        ListView ResultListView= (ListView)findViewById(R.id.listResult);
+        final ArrayList<String> notes = new ArrayList<>();
+
+        final ArrayAdapter<String> adapter;
+        adapter=new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, notes);
+
         /*
             output DB in an ordered list
          */
-        //LinearLayout layoutt = (LinearLayout) findViewById(R.id.layout);
         DatabaseHelper mDatabaseHelper;
         mDatabaseHelper = new DatabaseHelper(this, "paddatabase.db", null, 1);
         SQLiteDatabase mSqLiteDatabase = mDatabaseHelper.getWritableDatabase();;
@@ -38,10 +47,11 @@ public class SecondActivity extends ActionBarActivity {
         );
         //output each record
         while (cursor.moveToNext()) {
-            String note= cursor.getString(cursor.getColumnIndex(DatabaseHelper.NOTE_COLUMN));
-            String date = cursor.getString(cursor.getColumnIndex(DatabaseHelper.DATE_COLUMN));
+            notes.add(0, cursor.getString(cursor.getColumnIndex(DatabaseHelper.NOTE_COLUMN))+
+                    "\n"+cursor.getString(cursor.getColumnIndex(DatabaseHelper.DATE_COLUMN)));
         }
         cursor.close();
+        ResultListView.setAdapter(adapter);
     }
 
     /*
