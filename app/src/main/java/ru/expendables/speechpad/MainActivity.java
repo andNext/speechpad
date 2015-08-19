@@ -264,6 +264,8 @@ public class MainActivity extends Activity
             mSqLiteDatabase.insert("notes", null, newValues);
 
             ShowMessage(getString(R.string.saveTrue));
+            //hide button save on resave
+            saveButton.setVisibility(View.INVISIBLE);
         }
         //unsuccessful save
         else{
