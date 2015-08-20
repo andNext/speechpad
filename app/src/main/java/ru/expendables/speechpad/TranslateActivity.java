@@ -173,7 +173,7 @@ public class TranslateActivity extends FragmentActivity {
             try {
                 InputStream in = new java.net.URL(urls[0]).openStream();
                 JSONObject json = new JSONObject(streamToString(in));
-                String API_ARRAY_NAME = getResources().getString(R.string.api_langarray_name);
+                String API_ARRAY_NAME = getResources().getString(R.string.api_lang_array_name);
 
                 languageMap = LanguageListParser.parseLanguageList(
                         LanguageListParser.getListFromJSON(

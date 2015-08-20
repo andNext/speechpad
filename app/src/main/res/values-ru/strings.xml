@@ -1,25 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SpeechPad</string>
+
+    <!-- Title Activity -->
     <string name="title_activity_second">История</string>
     <string name="title_activity_language_list">Список языков</string>
     <string name="title_activity_translate">Переводчик</string>
-
     <string name="action_settings">Настройки</string>
 
+    <!-- Actions -->
     <string name="record">Запись</string>
     <string name="save">Сохранить</string>
     <string name="history">История</string>
-	
-    <string name="action_clear">Clear</string>
-
-    <string name="fromLang">en</string>
-    <string name="toLang">ru</string>
     <string name="translate">Перевести</string>
-
     <string name="delete_record">Удалить запись</string>
 
-    <string name="api_langarray_name">Список</string>
+    <string name="api_lang_array_name">Список</string>
 
     <!-- Error, warnings, tips -->
     <string name="saveTrue">Успешное сохранение!</string>

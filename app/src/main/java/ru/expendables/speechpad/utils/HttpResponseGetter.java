@@ -22,7 +22,7 @@ public class HttpResponseGetter  {
     }
 
     public static JSONObject getResponseByUrl(String url) {
-        String downloads = null;
+
         JSONObject json = null;
         try {
             InputStream in = new java.net.URL(url).openStream();

@@ -1,29 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SpeechPad</string>
-    <string name="title_activity_second">История</string>
-    <string name="title_activity_language_list">Список языков</string>
-    <string name="title_activity_translate">Translate</string>
 
+    <!-- Title Activity -->
+    <string name="title_activity_second">Journal</string>
+    <string name="title_activity_language_list">Available languages</string>
+    <string name="title_activity_translate">Translate</string>
     <string name="action_settings">Settings</string>
 
-    <string name="record">Запись</string>
+    <!-- Actions -->
+    <string name="record">Record</string>
     <string name="save">Save</string>
-    <string name="history">История</string>
-	
-    <string name="action_clear">Clear</string>
-
-    <string name="fromLang">en</string>
-    <string name="toLang">ru</string>
+    <string name="history">Journal</string>
     <string name="translate">Translate</string>
-
     <string name="delete_record">Delete</string>
 
-    <string name="api_langarray_name">Список</string>
+    <string name="fromLang" translatable="false">en</string>
+    <string name="toLang" translatable="false">ru</string>
+    <string name="api_lang_array_name">List</string>
 
     <!-- Error, warnings, tips -->
-    <string name="saveTrue">Успешное сохранение!</string>
-    <string name="saveFalse">Пустая запись!</string>
-    <string name="translateFalse">Пустая запись!</string>
+    <string name="saveTrue">Successful work!</string>
+    <string name="saveFalse">A blank entry!</string>
+    <string name="translateFalse">A blank entry!</string>
 </resources>
 
