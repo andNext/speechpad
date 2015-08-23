@@ -21,5 +21,6 @@
     <string name="saveTrue">Успешное сохранение!</string>
     <string name="saveFalse">Пустая запись!</string>
     <string name="translateFalse">Пустая запись!</string>
+    <string name="title_activity_settings">Настройки</string>
 </resources>
 

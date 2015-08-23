@@ -6,6 +6,7 @@
     <string name="title_activity_second">Journal</string>
     <string name="title_activity_language_list">Available languages</string>
     <string name="title_activity_translate">Translate</string>
+    <string name="title_activity_settings">SettingsActivity</string>
     <string name="action_settings">Settings</string>
 
     <!-- Actions -->
@@ -23,5 +24,6 @@
     <string name="saveTrue">Successful work!</string>
     <string name="saveFalse">A blank entry!</string>
     <string name="translateFalse">A blank entry!</string>
+
 </resources>
 
