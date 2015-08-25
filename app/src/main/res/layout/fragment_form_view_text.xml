@@ -1,5 +1,7 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.tech_mail.tp_android_2015.fragments.FormViewTextFragment">
 
@@ -15,7 +17,6 @@
         android:layout_marginTop="11dp" />
 
     <ImageButton
-
         android:layout_width="100dp"
         android:layout_height="95dp"
         android:layout_gravity="center_horizontal"
@@ -25,6 +26,5 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="44dp"
         android:onClick="onClickMicro" />
-
 
 </RelativeLayout>
