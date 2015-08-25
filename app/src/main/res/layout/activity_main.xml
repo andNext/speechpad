@@ -3,7 +3,6 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/background_black"
     android:longClickable="false">
 
 
@@ -11,27 +10,23 @@
         android:id="@+id/result_view"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/text_orange"
         android:layout_alignParentTop="true"
         android:layout_marginTop="99dp"
         android:layout_alignLeft="@+id/saveButton"
         android:layout_alignStart="@+id/saveButton"
         android:layout_alignRight="@+id/historyButton"
-        android:layout_alignEnd="@+id/historyButton"
-        android:textSize="@dimen/abc_text_size_large_material" />
+        android:layout_alignEnd="@+id/historyButton" />
 
     <TextView
         android:id="@+id/translate_view"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/text_orange"
         android:layout_below="@+id/result_view"
         android:layout_marginTop="33dp"
         android:layout_alignLeft="@+id/saveButton"
         android:layout_alignStart="@+id/saveButton"
         android:layout_alignRight="@+id/historyButton"
-        android:layout_alignEnd="@+id/historyButton"
-        android:textSize="@dimen/abc_text_size_large_material"/>
+        android:layout_alignEnd="@+id/historyButton" />
 
 
         <ImageButton

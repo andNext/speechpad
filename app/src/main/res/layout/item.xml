@@ -19,6 +19,5 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:text="@string/title_activity_translate"
-        android:textSize="14sp"
-        android:textColor="@color/text_orange"/>
+        android:textSize="14sp" />
 </LinearLayout>

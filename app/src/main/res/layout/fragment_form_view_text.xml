@@ -23,7 +23,8 @@
         android:id="@+id/to_history"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="44dp"/>
+        android:layout_marginBottom="44dp"
+        android:onClick="onClickMicro" />
 
 
 </RelativeLayout>

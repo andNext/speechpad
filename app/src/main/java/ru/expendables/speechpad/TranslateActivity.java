@@ -293,5 +293,9 @@ public class TranslateActivity extends FragmentActivity {
         savedInstanceState.putSerializable("languages", (java.io.Serializable) languageMap);
     }
 
+    public void onClickMicro(View view) {
 
+        Intent intent = new Intent(TranslateActivity.this, MainActivity.class);
+        startActivity(intent);
+    }
 }
