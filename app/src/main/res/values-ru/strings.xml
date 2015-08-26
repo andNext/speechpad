@@ -6,7 +6,7 @@
     <string name="title_activity_second">История</string>
     <string name="title_activity_language_list">Список языков</string>
     <string name="title_activity_translate">Переводчик</string>
-    <string name="action_settings">Настройки</string>
+    <string name="title_activity_settings">Настройки</string>
 
     <!-- Actions -->
     <string name="record">Запись</string>
@@ -14,6 +14,7 @@
     <string name="history">История</string>
     <string name="translate">Перевести</string>
     <string name="delete_record">Удалить запись</string>
+    <string name="action_settings">Настройки</string>
 
     <string name="api_lang_array_name">Список</string>
 
@@ -21,6 +22,5 @@
     <string name="saveTrue">Успешное сохранение!</string>
     <string name="saveFalse">Пустая запись!</string>
     <string name="translateFalse">Пустая запись!</string>
-    <string name="title_activity_settings">Настройки</string>
 </resources>
 
