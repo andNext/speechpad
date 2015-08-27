@@ -111,6 +111,7 @@ public class MainActivity extends Activity
         return super.onOptionsItemSelected(item);
     }
 
+    //Initialize PhraseSpotter with keyApi
     private void initialize() {
         SpeechKit.getInstance().configure(getBaseContext(), "8f38a015-ea3b-411f-babb-59b6d9e415a1");
 
