@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by eugene on 24.02.15.
+ * Created by Сергей Прайм on 26.07.2015.
  */
 public class LanguageListParser {
     public static List<String> getListFromJSON (JSONArray jArray) throws JSONException {

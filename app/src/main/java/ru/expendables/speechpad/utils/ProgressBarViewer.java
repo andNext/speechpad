@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 
 /**
- * Created by eugene on 01.03.15.
+ * Created by Сергей Прайм on 26.07.2015.
  */
 public class ProgressBarViewer {
     private static ProgressDialog progress;

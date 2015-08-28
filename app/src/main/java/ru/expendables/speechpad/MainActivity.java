@@ -120,7 +120,9 @@ public class MainActivity extends Activity
         PhraseSpotter.start();
     }
 
+    /*
 
+     */
     private void copyAssets() {
         AssetManager assetManager = getAssets();
         String[] files = null;
