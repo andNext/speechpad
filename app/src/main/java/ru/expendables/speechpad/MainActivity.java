@@ -70,7 +70,7 @@ public class MainActivity extends Activity
 
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         /*
-         assets/model
+         files in assets/model copy to directory app
          */
         File wallpaperDirectory = new File(getFilesDir().getAbsolutePath() + "/model/");
         wallpaperDirectory.mkdirs();
@@ -86,7 +86,7 @@ public class MainActivity extends Activity
 
         mSqLiteDatabase = mDatabaseHelper.getWritableDatabase();
 
-        initialize();
+        initialize(); //initialize Phrase Spotter
     }
 
     @Override
