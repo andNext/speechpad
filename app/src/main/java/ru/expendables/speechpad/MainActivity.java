@@ -121,7 +121,7 @@ public class MainActivity extends Activity
     }
 
     /*
-
+		files in assets/model copy to directory app
      */
     private void copyAssets() {
         AssetManager assetManager = getAssets();
